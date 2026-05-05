@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva and the Sanjo til the dawn 🌅</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="confetti"></div>
+    
+    <div class="sanjo-celebration">
+        <div class="stars" id="stars"></div>
+        
+        <div class="sanjo-content">
+            <div class="dawn-emoji">🌅</div>
+            <h1>Eva and the Sanjo til the dawn</h1>
+            <div style="font-size: 60px; margin-top: 30px;">✨🌙⭐</div>
+        </div>
+    </div>
+
+    <script src="confetti.js"></script>
+    <script>
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Trigger effects on load
+        window.addEventListener('load', () => {
+            createStars();
+            createConfetti(80);
+            // Create more confetti in waves
+            setInterval(() => {
+                createConfetti(15);
+            }, 2500);
+        });
+    </script>
+</body>
+</html>
